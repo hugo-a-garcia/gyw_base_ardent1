@@ -29,8 +29,8 @@ abstract class GYWDrawing {
     switch (data["type"]) {
       case TextDrawing.type:
         return TextDrawing.fromJson(data);
-      case WhiteScreen.type:
-        return const BlankScreen(color: Colors.white);
+      // case WhiteScreen.type:
+      //   return const BlankScreen(color: Colors.white);
       case BlankScreen.type:
         return BlankScreen.fromJson(data);
       case IconDrawing.type:
@@ -246,50 +246,50 @@ class TextDrawing extends GYWDrawing {
 }
 
 /// A drawing to reset the screen of the aRdent device to a white screen
-@Deprecated(
-  "WhiteScreen has been replaced by BlankScreen "
-  "who has a variable background color",
-)
-class WhiteScreen extends GYWDrawing {
-  /// The type of the [WhiteScreen] drawing
-  static const String type = "white_screen";
+// @Deprecated(
+//   "WhiteScreen has been replaced by BlankScreen "
+//   "who has a variable background color",
+// )
+// class WhiteScreen extends GYWDrawing {
+//   /// The type of the [WhiteScreen] drawing
+//   static const String type = "white_screen";
 
-  @Deprecated(
-    "WhiteScreen has been replaced by BlankScreen "
-    "who has a variable background color",
-  )
-  const WhiteScreen();
+//   @Deprecated(
+//     "WhiteScreen has been replaced by BlankScreen "
+//     "who has a variable background color",
+//   )
+//   const WhiteScreen();
 
-  @override
-  List<GYWBtCommand> toCommands() {
-    return [
-      GYWBtCommand(
-        GYWCharacteristic.ctrlDisplay,
-        int8Bytes(GYWControlCode.clear.value),
-      ),
-    ];
-  }
+//   @override
+//   List<GYWBtCommand> toCommands() {
+//     return [
+//       GYWBtCommand(
+//         GYWCharacteristic.ctrlDisplay,
+//         int8Bytes(GYWControlCode.clear.value),
+//       ),
+//     ];
+//   }
 
-  @override
-  String toString() {
-    return "Drawing: white screen";
-  }
+//   @override
+//   String toString() {
+//     return "Drawing: white screen";
+//   }
 
-  /// Deserializes a [WhiteScreen] from JSON data
-  @Deprecated(
-    "WhiteScreen has been replaced by BlankScreen "
-    "who has a variable background color",
-  )
-  // ignore: avoid_unused_constructor_parameters
-  factory WhiteScreen.fromJson(Map<String, dynamic> data) {
-    return const WhiteScreen();
-  }
+//   /// Deserializes a [WhiteScreen] from JSON data
+//   @Deprecated(
+//     "WhiteScreen has been replaced by BlankScreen "
+//     "who has a variable background color",
+//   )
+//   // ignore: avoid_unused_constructor_parameters
+//   factory WhiteScreen.fromJson(Map<String, dynamic> data) {
+//     return const WhiteScreen();
+//   }
 
-  @override
-  Map<String, dynamic> toJson() {
-    return {"type": type};
-  }
-}
+//   @override
+//   Map<String, dynamic> toJson() {
+//     return {"type": type};
+//   }
+// }
 
 /// A drawing to reset the content of the screen and its background color
 @immutable

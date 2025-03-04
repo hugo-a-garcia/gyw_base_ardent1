@@ -35,8 +35,12 @@ class _GYWExampleScreenState extends State<GYWExampleScreen> {
       ),
     ];
 
+    // for (final GYWDrawing drawing in drawings) {
+    //   await connectedDevice?.displayDrawing(drawing);
+    // }
+
     for (final GYWDrawing drawing in drawings) {
-      await connectedDevice?.displayDrawing(drawing);
+      await connectedDevice?.sendDrawing(drawing);
     }
   }
 

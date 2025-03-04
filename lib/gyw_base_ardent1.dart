@@ -5,7 +5,7 @@
 /// This library can be used to control the display.
 // ignore_for_file: directives_ordering
 
-library flutter_gyw;
+library;
 
 export 'src/device/bt_device.dart' show GYWBtDevice;
 export 'src/bt_manager.dart' show GYWBtManager;

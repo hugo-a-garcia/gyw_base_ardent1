@@ -1,6 +1,5 @@
 /// The icons supported by aRdent smart glasses
 // ignore_for_file: constant_identifier_names
-
 enum GYWIcon {
   blank("Blank", "blank", 48, 48),
   build("Build", "build", 48, 48),
