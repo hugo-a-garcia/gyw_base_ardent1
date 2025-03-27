@@ -1,4 +1,11 @@
 include: package:flutter_lints/flutter.yaml
 
+# Riverpod linter
+analyzer:
+  plugins:
+    - custom_lint
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
+
