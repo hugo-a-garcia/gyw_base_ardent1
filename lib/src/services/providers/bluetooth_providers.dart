@@ -38,6 +38,8 @@ typedef AdvertisementDataRecord =
 typedef BlueetoothDeviceRecord =
     ({
       String advName,
+      String deviceId,
+      int rssi,
       bool isAutoConnectedEnabled,
       bool isConnected,
       bool isDiconnedted,
@@ -73,6 +75,8 @@ final scanResultsRecordsProvider = StreamProvider<List<ScanResultRecord>>((
 
       final BlueetoothDeviceRecord deviceRecord = (
         advName: device.advName,
+        deviceId: device.remoteId.str,
+        rssi: scanResult.rssi,
         isAutoConnectedEnabled: device.isAutoConnectEnabled,
         isConnected: device.isConnected,
         isDiconnedted: device.isDisconnected,

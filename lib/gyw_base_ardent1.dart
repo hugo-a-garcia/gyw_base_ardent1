@@ -7,6 +7,8 @@
 
 library;
 
+export 'src/services/providers/bluetooth_providers.dart';
+export 'src/services/device_service.dart';
 export 'src/device/bt_device.dart' show GYWBtDevice;
 export 'src/bt_manager.dart' show GYWBtManager;
 export 'src/model/drawings.dart'
