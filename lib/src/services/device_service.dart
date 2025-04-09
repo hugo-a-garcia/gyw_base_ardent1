@@ -7,7 +7,7 @@ import '../model/drawing_parts/icons.dart';
 import '../model/drawings.dart';
 
 class DeviceService {
-  late final GYWBtDevice gywBtDevice;
+  late final GYWBtDevice _gywBtDevice;
 
   DeviceService._();
 
@@ -24,10 +24,18 @@ class DeviceService {
 
   Future<void> connectDevice(String remoteId, int rssi) async {
     var device = BluetoothDevice.fromId(remoteId);
-    gywBtDevice = GYWBtDevice(fbDevice: device, lastRssi: 0);
-    await gywBtDevice.connect();
-    await gywBtDevice.startDisplay();
-    print('DEVICE CONNECTED = ${gywBtDevice.isConnected}');
+    _gywBtDevice = GYWBtDevice(
+      fbDevice: device,
+      lastRssi: 0,
+      lastSeen: DateTime.now(),
+    );
+    await _gywBtDevice.connect();
+    await _gywBtDevice.startDisplay();
+  }
+
+  disconnectDevice() async {
+    //await _gywBtDevice.stopDisplay(); Not implemented.
+    await _gywBtDevice.disconnect();
   }
 
   Future<void> sendExampleData() async {
@@ -47,7 +55,7 @@ class DeviceService {
     // }
 
     for (final GYWDrawing drawing in drawings) {
-      await gywBtDevice.sendDrawing(drawing);
+      await _gywBtDevice.sendDrawing(drawing);
     }
   }
 }

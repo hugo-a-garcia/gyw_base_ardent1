@@ -21,14 +21,25 @@ final isAdapterOnProvider = StreamProvider<bool>((ref) async* {
   }
 });
 
+// Todo : Check for devices that are already connected.
+// Get devices that are already connected
+// final connectedDevices = await FlutterBluePlus.systemDevices([
+//   Guid("180a"),
+// ]);
+
 final startScanProvider = FutureProvider<void>((ref) async {
   if (FlutterBluePlus.isScanningNow) await FlutterBluePlus.stopScan();
   Duration timeout = const Duration(seconds: 3);
   await FlutterBluePlus.startScan(
     timeout: timeout,
     oneByOne: true,
-    // Uncomment next line to only scan the ardent
-    //withServices: [Guid("180A")],
+    // Uncomment next line to only scan the ardent or comment to see all bt devices.
+    withServices: [Guid("180A")],
+    // Add filter to exclude int minimumRssi = 0, rssi < mimimumRssi
+    //  if (result.rssi.abs() < minimumRssi) {
+    //         // Signal too weak : Skip result
+    //         return;
+    //       }
   );
 });
 

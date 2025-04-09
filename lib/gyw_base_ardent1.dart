@@ -9,18 +9,22 @@ library;
 
 export 'src/services/providers/bluetooth_providers.dart';
 export 'src/services/device_service.dart';
-export 'src/device/bt_device.dart' show GYWBtDevice;
-export 'src/bt_manager.dart' show GYWBtManager;
-export 'src/model/drawings.dart'
-    show
-        BlankScreen,
-        GYWDrawing,
-        IconDrawing,
-        TextDrawing,
-        RectangleDrawing,
-        SpinnerDrawing,
-        AnimationTimingFunction;
-export 'src/device/exceptions.dart' show GYWException, GYWStatusException;
-export 'src/model/drawing_parts/fonts.dart' show GYWFont;
-export 'src/model/drawing_parts/icons.dart' show GYWIcon;
-export 'src/model//drawing_parts/screen.dart' show GYWScreenParameters;
+
+//
+// The following should and must not be exported.
+// Only Services and Providers should be exported.
+//
+// export 'src/device/bt_device.dart' show GYWBtDevice;
+// export 'src/model/drawings.dart'
+//     show
+//         BlankScreen,
+//         GYWDrawing,
+//         IconDrawing,
+//         TextDrawing,
+//         RectangleDrawing,
+//         SpinnerDrawing,
+//         AnimationTimingFunction;
+// export 'src/device/exceptions.dart' show GYWException, GYWStatusException;
+// export 'src/model/drawing_parts/fonts.dart' show GYWFont;
+// export 'src/model/drawing_parts/icons.dart' show GYWIcon;
+// export 'src/model//drawing_parts/screen.dart' show GYWScreenParameters;
