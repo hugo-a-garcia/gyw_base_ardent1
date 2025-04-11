@@ -33,8 +33,10 @@ final startScanProvider = FutureProvider<void>((ref) async {
   await FlutterBluePlus.startScan(
     timeout: timeout,
     oneByOne: true,
+    withNames: ['GYW aRdent'],
+    //withServices: [Guid("180A")],
     // Uncomment next line to only scan the ardent or comment to see all bt devices.
-    withServices: [Guid("180A")],
+
     // Add filter to exclude int minimumRssi = 0, rssi < mimimumRssi
     //  if (result.rssi.abs() < minimumRssi) {
     //         // Signal too weak : Skip result
